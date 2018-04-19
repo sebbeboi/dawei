@@ -1,0 +1,10 @@
+<?php
+
+include("../templates/navigation.php");
+
+?>
+bokning
+
+
+</body>
+</html>

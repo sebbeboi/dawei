@@ -1,0 +1,26 @@
+CREATE TABLE bord
+(bord_id int(8) PRIMARY KEY AUTO_INCREMENT,
+bord_platser int(8) DEFAULT 6
+);
+
+CREATE TABLE bokning(
+bokning_id int(8) PRIMARY KEY AUTO_INCREMENT,
+bokning_bord int(8),
+bokning_tid varchar(32),
+bokning_datum varchar(32),
+bokning_antal int(8),
+bokning_namn varchar(32),
+bokning_extra text(500),
+FOREIGN KEY(bokning_bord) REFERNCES bord(bord_id)
+);
+
+INSERT INTO bord (bord_platser)
+VALUES
+(4),(6),(8),(12),(2);
+
+
+
+
+
+
+SELECT * FROM bord JOIN bokning ON bord_id = bokning_bord WHERE bord_platser 2 >= AND (bokning_datum == "value" AND bokning_tid "value") AND ); 
