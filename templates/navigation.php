@@ -14,4 +14,5 @@
   <li><a href="/dawei/meny/">Meny</a></li>
   <li><a href="/dawei/about/">Om oss</a></li>
     <li><a href ="/dawei/bokning/">Bokning</a></li>
+    <li><a href ="/dawei/recensioner/">Recensioner</a></li>
     </ul>
