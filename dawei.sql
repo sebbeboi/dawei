@@ -41,3 +41,13 @@ VALUES
 ("PAD THAI",89,"Biff i stark röd thaicurry med katchairot, longbeans, färsk grönpeppar, bambuskott, eggplant, chili, vitlök och koriander.",2)
 ;
 
+
+
+CREATE TABLE Reviews (
+reviews_id int(8) PRIMARY KEY AUTO_INCREMENT,
+reviews_stars int(1),
+reviews_text text(500),
+reviews_author varchar(32),
+reviews_ip varchar(32)
+);
+
