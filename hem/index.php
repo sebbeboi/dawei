@@ -2,11 +2,21 @@
 
 include("../templates/navigation.php");
 
+
 ?>
 
-hem
+hej hej 
 
 
 
+
+
+
+<?php
+
+include("../templates/footer.php");
+
+
+?>
 </body>
 </html>

@@ -2,9 +2,9 @@
 
 include("../templates/navigation.php");
 
-$dbc = mysqli_connect("localhost","root","","dawei")
+$dbc = mysqli_connect("localhost","root","","dawei");
 
-if (isset($_POST['name'])) && (isset ($_POST['date'])) && (isset($_POST['time'])) && (isset($_POST['persons'])){
+if (isset($_POST['namn']) && (isset ($_POST['date'])) && (isset($_POST['time'])) && isset($_POST['persons'])){
     
     $antal = $_POST ['persons'];
     
@@ -13,20 +13,20 @@ if (isset($_POST['name'])) && (isset ($_POST['date'])) && (isset($_POST['time'])
     $result = mysqli_query($dbc,$query);
     
     if ($table = mysqli_fetch_array($result)){
-         $name = $_POST['name']
-        $tid = $_POST['time']
-        $datum = $_POST['date']
-        $extra = $_POST['extra']
+        $namn = $_POST['namn'];
+        $tid = $_POST['time'];
+        $datum = $_POST['date'];
+        $extra = $_POST['extra'];
         $table_id = $table['id'];
         
         $query = "INSERT INTO bokning
-        (boking_name,bokning_datum,bokning_tid,bokning_bord,bokning_antal,bokning_extra)
+        (boking_namn,bokning_datum,bokning_tid,bokning_bord,bokning_antal,bokning_extra)
         VALUES
-        ('$name', '$datum','$tid',$table_id,$antal,'$extra');";
+        ('$namn', '$datum','$tid',$table_id,$antal,'$extra');";
     
     }
         else{
-            echo "inga bord lediga"
+            echo "inga bord lediga";
         }
         
        
@@ -34,7 +34,7 @@ if (isset($_POST['name'])) && (isset ($_POST['date'])) && (isset($_POST['time'])
             
     }
     
-}
+
 
 
 

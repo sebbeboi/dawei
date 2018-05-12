@@ -4,12 +4,23 @@
 
 .dish-container{
 	padding:10px;
-	width:450px;
-	height:100px;
-	background-color:pink;	
-	float:left;
+	background-color:white;	
+    border-style: solid;
+    border-color: black;
+    width:450px;
+    height:100px;
+    
 }
 
+
+.meny-container{
+    display:flex;
+    flex-direction:row;
+    flex-wrap:wrap;
+    text-align: center;
+    margin-left: 50px;
+    padding: 20px;
+}
 .dish-name{	
 	float:left;
 	width:80%;

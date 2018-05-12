@@ -7,7 +7,9 @@ ul {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color:blueviolet;
+    background-color:sandybrown;
+    border-style: solid;
+    border-color: black;
 }
 
 li {
@@ -29,7 +31,9 @@ li a:hover {
 h1{
     
     text-align: center;
-    background-color: blueviolet;
+    background-color: white;
+    border-style: solid;
+    border-color: black;
     
 }
 

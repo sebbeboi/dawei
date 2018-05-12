@@ -1,6 +1,12 @@
+
+
+
+
 <?php
 
 include("../templates/navigation.php");
+
+
 
 $dbc = mysqli_connect("localhost","root","","dawei");
 mysqli_query($dbc,"SET NAMES UTF8");
@@ -9,6 +15,12 @@ $query = "SELECT * FROM dishes";
 $result = mysqli_query($dbc,$query);
 
 $n = 0;
+
+?>
+
+<div class="meny-container">
+
+<?php
 while($row = mysqli_fetch_array($result)){
 	$n++;
 	?>
@@ -34,9 +46,19 @@ while($row = mysqli_fetch_array($result)){
 	</div>
 	
 </div>
+
 <?php	
 }	 // avsluta while-loop
 ?>
+</div>
+<footer>
+<?php
+    
+include("../templates/footer.php");
+
+
+?>
+</footer>
 
 
 </body>
