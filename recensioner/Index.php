@@ -14,7 +14,7 @@
 <div id="review_form_container">
 <?php
 
-    $dbc = mysqli_connect();
+    $dbc = mysqli_connect("localhost","root","","dawei");
     
     if(isset($_POST['author']) && isset($_POST['text']) && isset($_POST['stars'])){
        
@@ -23,7 +23,7 @@
         $text = $_POST['text'];
         $stars = $_POST['stars'];
         
-        $query = "INSERT INTO reviews (author,text,stars) VALUES ('$author','$text','$stars');";
+        $query = "INSERT INTO reviews (reviews_author,reviews_text,reviews_stars) VALUES ('$author','$text','$stars');";
 
         if(mysqli_query($dbc,$query)){
             
