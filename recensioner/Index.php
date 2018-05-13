@@ -15,11 +15,24 @@
 
 <form id="review_form">
 
-Ditt namn: <input type="text" name="author"></input><br>
-Recension: <input type="textfield" name="text"></input><br>
-Betyg: <input type="range" min="1" max="5" step="1" name="stars"></input><br>
-
+Ditt namn: <input type="text" name="author"/><br>
+Recension: <input type="textfield" name="text"/><br>
+Betyg: <input id="slider" type="range" min="1" max="5" step="1" name="stars"/><span id="value">1</span><br>
+<input type="submit" />
 </div>
+
+<script>
+
+var slider = document.getElementById("slider");
+
+slider.oninput = function (){
+    document.getElementById("value").innerHTML = slider.value;
+    
+    
+};
+
+
+</script>
 
 
 
