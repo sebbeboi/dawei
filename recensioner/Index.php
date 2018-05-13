@@ -79,7 +79,10 @@ slider.oninput = function (){
     
     while($row = mysqli_fetch_array($result)){
         
+        
+        echo $row['reviews_author'] . "<br>";
         echo $row['reviews_text'] . "<br>";
+        echo $row['reviews_stars'] . "<br>";
         
     }
     
