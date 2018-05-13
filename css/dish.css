@@ -33,6 +33,14 @@
 	float:right;	
 }
 
+.stars{
+	padding:10px 0px;
+	display: flex;
+    text-align: center;
+    justify-content: center;
+    	
+}
+
 .dish-desc{
 	width:80%;	
 	word-wrap:break-word;

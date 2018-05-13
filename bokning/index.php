@@ -4,26 +4,27 @@ include("../templates/navigation.php");
 
 $dbc = mysqli_connect("localhost","root","","dawei");
 
-if (isset($_POST['namn']) && (isset ($_POST['date'])) && (isset($_POST['time'])) && isset($_POST['persons'])){
+if (isset($_POST['name']) && (isset ($_POST['date'])) && (isset($_POST['time'])) && isset($_POST['persons'])){
     
-    $antal = $_POST ['persons'];
+    $antal = $_POST['persons'];
     
-    $query = "SELCET * FROM bord WHERE bord_platser > $antal";
-    
+    $query = "SELECT * FROM bord WHERE bord_platser > $antal";
+
     $result = mysqli_query($dbc,$query);
     
     if ($table = mysqli_fetch_array($result)){
-        $namn = $_POST['namn'];
+        $namn = $_POST['name'];
         $tid = $_POST['time'];
         $datum = $_POST['date'];
-        $extra = $_POST['extra'];
-        $table_id = $table['id'];
+        $extra = $_POST['text'];
+        $table_id = $table['bord_id'];
         
         $query = "INSERT INTO bokning
-        (boking_namn,bokning_datum,bokning_tid,bokning_bord,bokning_antal,bokning_extra)
+        (bokning_namn,bokning_datum,bokning_tid,bokning_bord,bokning_antal,bokning_extra)
         VALUES
         ('$namn', '$datum','$tid',$table_id,$antal,'$extra');";
-    
+        $result = mysqli_query($dbc,$query);
+       
     }
         else{
             echo "inga bord lediga";

@@ -41,3 +41,29 @@ h1{
    margin: 0;
     padding: :0;
 }
+
+
+.review_content{
+    
+    height: auto;
+    width:500px;
+    padding: 5px;
+    margin: 15px;
+    text-align: center;
+    border: 2px solid black;
+    background-color: lightsalmon;
+    
+}
+
+#review_form_container{
+    text-align: center;
+
+    
+}
+
+#reviews_headline{
+    font-size: 3em;
+    
+    
+    
+}
