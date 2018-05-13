@@ -82,8 +82,11 @@ slider.oninput = function (){
         
         echo $row['reviews_author'] . "<br>";
         echo $row['reviews_text'] . "<br>";
-        echo $row['reviews_stars'] . "<br>";
-        
+        $stars = $row['reviews_stars'];	
+        for($i = 0 ; $i < $stars ; $i++){?>
+            <img class="chili" width="25px" src="../imgs/chili.png" />
+        <?php } ?>
+        echo "<br><br>";
     }
     
     
