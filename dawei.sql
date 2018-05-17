@@ -27,6 +27,13 @@ dishes_img varchar(32),
 FOREIGN KEY (dishes_category_id) REFERENCES categories(categories_id)
 );
 
+CREATE TABLE Drinks (
+Drinks_id int(8) PRIMARY KEY AUTO_INCREMENT,
+Drinks_name varchar(32),
+Drinks_price float,
+Drinks_description text(500),
+Drinks_img varchar(32)
+);
 
 
 INSERT INTO dishes (dishes_name,dishes_price,dishes_description,dishes_hot)
@@ -41,6 +48,18 @@ VALUES
 ("NUA PAD NAMAN HOI",69,"Traditionell risnudelwok i tamarindsås på fläskfilé, ägg, tofu, lime, rödlök, nötter, riven morot, teblad och böngroddar (Thaikryddor: Såser finns på bordet, välj styrka själv!).",1),
 ("PAD THAI",89,"Biff i stark röd thaicurry med katchairot, longbeans, färsk grönpeppar, bambuskott, eggplant, chili, vitlök och koriander.",2)
 ;
+
+UPDATE dishes SET dishes_img = CONCAT("dish" , dishes_id , ".png");
+
+
+INSERT INTO Drinks (Drinks_name,Drinks_price,Drinks_description,Drinks_img)
+VALUES
+("Coca-Cola",29,"Coca-Cola är en kolsyrad läskedryck med colasmak","drink1.png"),
+("Fanta",29,"Läskdryck med smak av apelsin","drink2.png"),
+("Pepsi",29,"Pepsi-Cola, är en kolsyrad läskedryck med smak om cola","drink3.png");
+
+
+
 
 
 
