@@ -33,6 +33,22 @@ include("../templates/navigation.php"); // hämtar NAVen från sökvägen dawei
 
 $dbc = mysqli_connect("localhost","root","","dawei");
 
+
+if(isset($_GET['book'])){
+    
+    $tables = explode("o",$_GET['book']);
+    
+    for($i = 0 ; $i < count($tables)  ; $i++){
+        
+        echo $tables[$i];
+        
+    }
+    
+}
+
+
+
+
 if (isset($_POST['name']) && (isset ($_POST['date'])) && (isset($_POST['time'])) && isset($_POST['persons'])){ // om något i form så kommer den skicka vidare det till databasen 
     
     $antal = $_POST['persons'];
@@ -75,13 +91,160 @@ if (isset($_POST['name']) && (isset ($_POST['date'])) && (isset($_POST['time']))
 bokning
 
 
-<form method="POST" action="">
 
+
+<style>
+
+    .whole-table, .whole-table-occupied,.whole-table-chosen{
+        width:300px;
+        height:300px;
+        float:left;
+    }
+   
+    .whole-table-chosen .chair{
+       background-color: yellow
+    }
+    
+    .whole-table-chosen .table{
+       background-color: yellow
+    }
+   
+   .whole-table-occupied .chair{
+       background-color: red
+    }
+    
+    .whole-table-occupied .table{
+       background-color: red
+    }
+    
+    .whole-table .chair{
+       background-color: lightgreen
+    }
+    
+    .whole-table .table{
+       background-color: lightgreen
+    }
+    
+   .whole-table:hover .chair{
+       background-color: yellow
+    }
+    
+    .whole-table:hover .table{
+       background-color: yellow
+    }
+    
+    
+    .chair{
+        width:96px;
+        height:96px;
+        border:2px solid black;
+        border-radius: 100%;
+        background-color: inherit;
+        float:left;
+    }
+    
+    .table{
+        float:left;
+        width:96px;
+        height:96px;
+        background-color: inherit;
+        border:2px solid black;
+    }
+    
+    .hidden{
+        float:left;
+        width:100px;
+        height:100px;
+        background-color: white;
+    }
+
+</style>
+
+<script>
+
+    function choseTable(table){
+        
+        if(table.className == "whole-table-chosen"){
+        table.className = "whole-table";            
+        }
+        else{
+        table.className = "whole-table-chosen";
+        }
+        
+    
+    
+    }
+    
+    
+    
+    function submitForm(){
+    
+        tables = document.getElementsByClassName("whole-table-chosen");
+        tableString = "";
+        for(i = 0 ; i < tables.length ; i++){
+            table = tables[i];
+            tableString += table.id;
+            if(i != tables.length-1){
+            tableString += "o";
+                
+            }
+                    
+        }
+
+        location.replace("?book=" + tableString);
+        return false;
+    }
+
+</script>
+
+<div class="tables-container">
+
+    <?php
+    
+    
+    $dbc = mysqli_connect("localhost","root","","dawei");
+    mysqli_query($dbc,"SET NAMES UTF8");
+
+    $query = "SELECT * FROM bord";
+    $result = mysqli_query($dbc,$query);
+
+    while($row = mysqli_fetch_array($result)){
+        ?>
+    
+    
+    <div onmousedown="choseTable(this)" id="<?php echo $row['bord_id']; ?>" class="whole-table">
+    <div class="hidden">
+    </div>
+    <div class="chair">
+    </div>
+    <div class="hidden">
+    </div>
+    <div class="chair">
+    </div>
+    <div class="table">
+    </div>
+    <div class="chair">
+    </div>
+    <div class="hidden">
+    </div>
+    <div class="chair">
+    </div>
+    <div class="hidden">
+    </div>
+</div>
+ <?php
+    }
+    ?>
+
+
+
+</div>
+
+<form method="POST" action="" onsubmit="return submitForm()">
 Namn: <input type="text" name="name">
 Datum: <input type="date" name="date">
 Tid: <input type="time" name="time">
-Antal personer: <input type="number" name="persons">
-extra: <input type="text" name="text">
+Extra: <input type="text" name="text">
 <input type="submit"/>
 </form>
 
