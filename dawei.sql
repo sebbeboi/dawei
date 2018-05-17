@@ -23,6 +23,7 @@ dishes_category_id int(8),
 dishes_description text(500),
 dishes_hot int(1),	
 dishes_vegan int(1),
+dishes_img varchar(32),
 FOREIGN KEY (dishes_category_id) REFERENCES categories(categories_id)
 );
 
