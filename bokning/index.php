@@ -40,12 +40,25 @@ if(isset($_GET['book'])){
     
     for($i = 0 ; $i < count($tables)  ; $i++){
         
-        echo $tables[$i];
+        $bord_id = $tables[$i];
+        
+        $query = "SELECT * FROM BORD JOIN bokning ON bord.bord_id = bokning.bokning_bord where bord_id = $bord_id;";
+
+        $result = mysqli_query($dbc,$query);
+
+        if(!mysqli_fetch_array($result)){
+            echo "BOKA " . $bord_id . "<br>";
+            // SKAPA BOKNIG MED DATABASFRÅGA
+        }
+        else{
+            echo "FULLT " . $bord_id . "<br>";
+        }
+        
+        
         
     }
     
 }
-
 
 
 
